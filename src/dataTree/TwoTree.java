@@ -10,6 +10,12 @@ import java.util.Stack;
  * Created by lirui on 2018/11/28.
  */
 public class TwoTree<E extends Comparable<E>> {
+    public static void main(String[] args) {
+        TwoTree twoTree=new TwoTree();
+        twoTree.add(1);
+        twoTree.add(2);
+        twoTree.add(3);
+    }
     private Node root;
     private int size;
 

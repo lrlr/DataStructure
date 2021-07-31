@@ -27,6 +27,8 @@ public class TreeTest<E extends Comparable<E>>{
         size=0;
     }
 
+
+
     public void add(E e){
        root= add(root,e);
     }

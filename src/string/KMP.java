@@ -7,33 +7,6 @@ import java.util.Arrays;
  * 前缀"和"后缀"。 "前缀"指除了最后一个字符以外，一个字符串的全部头部组合；
  */
 public class KMP {
-
-
-    public static int[] getNext1(String ps)
-    {
-        char[] strKey = ps.toCharArray();
-        int[] next = new int[strKey.length];
-
-        // 初始条件
-        int j = 0;
-        int k = -1;
-        next[0] = -1;
-
-        // 根据已知的前j位推测第j+1位
-        while (j < strKey.length - 1)
-        {
-            if (k == -1 || strKey[j] == strKey[k])
-            {
-                next[++j] = ++k;
-            }
-            else
-            {
-                k = next[k];
-            }
-        }
-
-        return next;
-    }
     /*
      * 返回字符串的next数组
      */
@@ -76,10 +49,8 @@ public class KMP {
 
     public static void main(String[] args) {
         KMP aKmp = new KMP();
-        System.out.println(Arrays.toString(aKmp.getNext("BBC")));
-//        System.out.println(Arrays.toString(aKmp.getNext1("BBC")));
-//        System.out.println(Arrays.toString(aKmp.getNext("ABDABC")));
-//        System.out.println(Arrays.toString(aKmp.getNext("ababaaaba")));
-//        System.out.println(aKmp.index_KMP("goodgoogle", "google", 0));
+        String s="abaabcac";
+        System.out.println(Arrays.toString(aKmp.getNext(s)));
+        System.out.println(aKmp.index_KMP("abaabcabaabcac",s,0));
     }
 }

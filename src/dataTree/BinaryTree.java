@@ -9,6 +9,14 @@ import java.util.*;
  * Created by lirui on 2018/12/3.
  */
 public class BinaryTree<E extends Comparable<E>> {
+    public static void main(String[] args) {
+        BinaryTree<Integer> tree = new BinaryTree<Integer>();
+        tree.add(1);
+        tree.add(2);
+        tree.add(3);
+        tree.deleteMin();
+    }
+
     //二叉树根节点
     private Node root;
     //二叉树长度
@@ -156,9 +164,8 @@ public class BinaryTree<E extends Comparable<E>> {
 
     private Node deleteMin(Node node) {
         if (node.leftNode == null) {
-            Node right = node.rightNode;
-            node.rightNode = null;
-            return right;
+            node = node.rightNode;
+            return node;
 
         }
         node.leftNode = deleteMin(node.leftNode);
@@ -173,9 +180,8 @@ public class BinaryTree<E extends Comparable<E>> {
 
     private Node deleteMax(Node node) {
         if (node.rightNode == null) {
-            Node left = node.leftNode;
-            node.leftNode = null;
-            return left;
+            node = node.leftNode;
+            return node;
         }
         node.rightNode = deleteMax(node);
         return node;
@@ -183,7 +189,7 @@ public class BinaryTree<E extends Comparable<E>> {
 
     //删除结点值为e的结点
     public void remove(E e) {
-           root=remove(root,e);
+        root = remove(root, e);
     }
 
     private Node remove(Node node, E e) {
